@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concat</title>
+  </head>
+
+  <body>
+    <h1>Concat</h1>
+
+    <script>
+      // JS includes method
+      const includesWorld = 'Hello World'.includes('World')
+      const includesHello = 'Hello World'.includes('Hello')
+      const includesOk = 'Hello World'.includes('Ok')
+
+      console.log(includesWorld);
+      console.log(includesHello);
+      console.log(includesOk);
+
+      /**
+       * Determines whether a string contains the characters of a specified string. Returns true if the string contains the characters, and false if not.
+       *
+       * @param  [string]: string
+       * @param  [string]: searchValue
+       * @return [string]: true or false
+      */
+
+      function includes(string, searchValue) {
+        let matchCount = 0 // 1a letra da palavra que estamos a procurar
+
+        for (const char of string) {
+          if (char === searchValue[matchCount]) {
+            matchCount++
+
+            if (matchCount === searchValue.length) {
+              return true
+            }
+          } else {
+            matchCount = 0
+
+            if (char === searchValue[matchCount]) {
+              matchCount++
+            }
+          }
+        }
+
+        return false
+      }
+
+      console.log(includes('Hello World', 'World'));
+      console.log(includes('Hello World', 'Hello'));
+      console.log(includes('Hello World', 'Ok'));
+      console.log(includes('Hello World Pka', 'Woa'));
+      console.log(includes('Hello World Pka', 'lo W'));
+    </script>
+  </body>
+</html>
