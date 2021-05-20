@@ -11,48 +11,83 @@
       body {
         position: relative;
       }
+
+      .reversed {
+        transform: scaleX(-1);
+      }
     </style>
   </head>
 
   <body>
     <img id="image" src="./chara-1.png">
+    <img id="bear1" src="./chara-1.png">
+    <img id="bear2" src="./chara-1.png">
+    <img id="bear3" src="./chara-1.png">
 
     <script>
       const image = document.getElementById('image')
+      const bear1 = document.getElementById('bear1')
+      const bear2 = document.getElementById('bear2')
+      const bear3 = document.getElementById('bear3')
 
       let i = 0
-      let velocity = 10
+      let velocity = 10 // Number of pixels to add or remove to style left
       let distance = 0
 
       setInterval (() => {
         if (i == 0) {
           image.src = './chara-1.png'
+          bear1.src = './chara-1.png'
+          bear2.src = './chara-1.png'
+          bear3.src = './chara-1.png'
 
           i++
 
         } else if (i == 1) {
           image.src = './chara-2.png'
+          bear1.src = './chara-2.png'
+          bear2.src = './chara-2.png'
+          bear3.src = './chara-2.png'
 
           i++
 
         } else {
           image.src = './chara-3.png'
+          bear1.src = './chara-3.png'
+          bear2.src = './chara-3.png'
+          bear3.src = './chara-3.png'
 
           i = 0
         }
 
         distance = distance + velocity
 
-        if (distance >= (window.innerWidth / 10)) {
+        // Check the distance of the Bear from left to the end of my windows width and reverts it, making him return back
+        // Inverts the velocity when the Bear reaches the end of the screen
+        // - 32 is the size of the bear
+        if (distance >= (window.innerWidth -32)) {
           velocity = velocity*(-1)
+
+          image.classList.add("reversed");
+          bear1.classList.add("reversed");
+          bear2.classList.add("reversed");
+          bear3.classList.add("reversed");
         }
 
-        // So my bear dont disappear when he gets back to his start point
+        // So my Bear dont disappear when he gets back to his starting point
         if (distance < 0) {
           velocity = velocity*(-1)
+
+          image.classList.remove("reversed");
+          bear1.classList.remove("reversed");
+          bear2.classList.remove("reversed");
+          bear3.classList.remove("reversed");
         }
 
-        image.style = `position: absolute; left:${distance}px`
+        image.style = `position: absolute; left:${distance}px; top: 50px;`
+        bear1.style = `position: absolute; left:${distance+32}px`
+        bear2.style = `position: absolute; left:${distance+64}px; top: 50px;`
+        bear3.style = `position: absolute; left:${distance+96}px`
       }, 300)
     </script>
   </body>
