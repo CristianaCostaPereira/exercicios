@@ -64,8 +64,8 @@
 
         // Check the distance of the Bear from left to the end of my windows width and reverts it, making him return back
         // Inverts the velocity when the Bear reaches the end of the screen
-        // - 32 is the size of the bear
-        if (distance >= (window.innerWidth -32)) {
+        // -128 is 32*4 that is the total size of my four bears
+        if (distance >= (window.innerWidth -128)) {
           velocity = velocity*(-1)
 
           image.classList.add("reversed");
