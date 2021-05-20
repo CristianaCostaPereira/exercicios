@@ -1,45 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movimento</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      position: relative;
-    }
-  </style>
-</head>
-<body>
-  <img id="image" src="./chara-1.png">
+    <title>Image Movement</title>
 
-  <script>
-    const image = document.getElementById('image')
-
-    let i = 0
-
-    setInterval (() => {
-
-      if (i == 0) {
-        image.src = './chara-1.png'
-
-        i++
-
-      } else if (i == 1) {
-        image.src = './chara-2.png'
-
-        i++
-
-      } else {
-        image.src = './chara-3.png'
-
-        i = 0
+    <style>
+      body {
+        position: relative;
       }
-    })
+    </style>
+  </head>
 
-  </script>
+  <body>
+    <img id="image" src="./chara-1.png">
 
-</body>
+    <script>
+      const image = document.getElementById('image')
+
+      let i = 0
+      let velocity = 10
+      let distance = 0
+
+      setInterval (() => {
+        if (i == 0) {
+          image.src = './chara-1.png'
+
+          i++
+
+        } else if (i == 1) {
+          image.src = './chara-2.png'
+
+          i++
+
+        } else {
+          image.src = './chara-3.png'
+
+          i = 0
+        }
+
+        distance = distance + velocity
+
+        if (distance >= (window.innerWidth / 10)) {
+          velocity = velocity*(-1)
+        }
+
+        // So my bear dont disappear when he gets back to his start point
+        if (distance < 0) {
+          velocity = velocity*(-1)
+        }
+
+        image.style = `position: absolute; left:${distance}px`
+      }, 300)
+    </script>
+  </body>
 </html>
