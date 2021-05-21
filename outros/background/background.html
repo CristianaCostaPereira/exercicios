@@ -10,11 +10,20 @@
     <style>
       body {
         position: relative;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
       }
 
-      button {
+      input {
         display: flex;
         margin-top: 5px;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      label {
+        margin: 10px;
       }
     </style>
   </head>
@@ -22,11 +31,17 @@
   <body>
     <h1 id="my-background-color">Change Background</h1>
 
-    <input type="number" id="red-rgb" placeholder="red" min="0" max="255">
-    <input type="number" id="green-rgb" placeholder="green" min="0" max="255">
-    <input type="number" id="blue-rgb" placeholder="blue" min="0" max="255">
+    <label for="r"> R:
+      <input type="number" id="red-rgb" placeholder="red" min="0" max="255" oninput="getInputColors()">
+    </label>
 
-    <button onclick="getInputColors()">Change Background Color</button>
+    <label for="r"> G:
+      <input type="number" id="green-rgb" placeholder="green" min="0" max="255" oninput="getInputColors()">
+    </label>
+
+    <label for="r"> B:
+      <input type="number" id="blue-rgb" placeholder="blue" min="0" max="255" oninput="getInputColors()">
+    </label>
 
     <script>
       function getInputColors() {
