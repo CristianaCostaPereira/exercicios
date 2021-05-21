@@ -9,7 +9,9 @@
   "scripts": {
     "start": "browser-sync start --server --files '*/**/*.html,*/**/*.js,' --no-open"
   },
-  "dependencies": {},
+  "dependencies": {
+    "vue": "^2.6.12"
+  },
   "devDependencies": {
     "browser-sync": "^2.26.14"
   }
