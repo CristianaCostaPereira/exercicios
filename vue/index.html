@@ -6,14 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue.js</title>
 
-    <script src="C:\Projects\Forked_JavaScript_Exercices\node_modules\vue\dist\vue.js"></script>
+    <script src="/node_modules/vue/dist/vue.js"></script>
   </head>
 
   <body>
-    <h1>hiii</h1>
+    <main id="main">
+      {{message}}
+
+      {{name}}
+
+      <button @click="updateName">Trocar Nome</button>
+    </main>
 
     <script>
-    </script>
+      const vue = new Vue({
+        // the element vue is going to have scope
+        el: '#main',
 
+        //declare our variables
+        data: {
+          message: 'Hello',
+          name: ' Cris'
+        },
+
+        methods: {
+          updateName : function () {
+            this.name = 'Everyone'
+          }
+        }
+      })
+    </script>
   </body>
 </html>
