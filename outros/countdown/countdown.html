@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Image Movement</title>
+
+    <style>
+      body {
+        position: relative;
+      }
+    </style>
+  </head>
+
+  <body>
+    <span id="counter"></span>
+
+    <button onclick="pause()">Pause</button>
+    <!-- <button onclick="stop">Stop</button>
+    <button onclick="restart">Restart</button> -->
+
+    <script>
+      // Finds element with id counter and updates it innerText
+      function updateCounter(counterValue) {
+        let counterElement = document.getElementById('counter')
+
+        counterElement.innerText = counterValue
+      }
+
+      let i = 0
+
+      setInterval(function(){
+        updateCounter(i);
+
+        i++
+      }, 1000);
+
+      function pause() {
+        debugger
+      }
+    </script>
+  </body>
+</html>
