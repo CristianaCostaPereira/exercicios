@@ -15,9 +15,16 @@
         flex-direction: column;
       }
 
+      h1, .overlay {
+        background-color: rgba(255, 255, 255, 0.473);
+        padding: 10px;
+        border-radius: 10%;
+      }
+
       input {
         text-align: center;
         min-width: 115px;
+        border-radius: 10%;
         padding: 4px;
         margin-left: 10px;
       }
@@ -39,17 +46,19 @@
   <body>
     <h1 id="my-background-color">Change Background</h1>
 
-    <label for="r"> R:
-      <input type="number" id="red-rgb" placeholder="red" min="0" max="255" oninput="getInputColors()">
-    </label>
+    <div class="overlay">
+      <label for="r"> R:
+        <input type="number" id="red-rgb" placeholder="red" min="0" max="255" oninput="getInputColors()">
+      </label>
 
-    <label for="r"> G:
-      <input type="number" id="green-rgb" placeholder="green" min="0" max="255" oninput="getInputColors()">
-    </label>
+      <label for="r"> G:
+        <input type="number" id="green-rgb" placeholder="green" min="0" max="255" oninput="getInputColors()">
+      </label>
 
-    <label for="r"> B:
-      <input type="number" id="blue-rgb" placeholder="blue" min="0" max="255" oninput="getInputColors()">
-    </label>
+      <label for="r"> B:
+        <input type="number" id="blue-rgb" placeholder="blue" min="0" max="255" oninput="getInputColors()">
+      </label>
+    </div>
 
     <script>
       function getInputColors() {
